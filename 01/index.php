@@ -36,8 +36,23 @@ while (!$file->eof()) {
     $file->next();
 }
 
-$elf = array_reduce($elves, function (?Elf $carry, Elf $item): Elf {
-    return isset($carry) && $carry->getCalories() > $item->getCalories() ? $carry : $item;
+// Part 1
+// $elf = array_reduce($elves, function (?Elf $carry, Elf $item): Elf {
+//     return isset($carry) && $carry->getCalories() > $item->getCalories() ? $carry : $item;
+// });
+
+// Part 2
+usort($elves, function (Elf $elf1, Elf $elf2): int {
+    if ($elf1->getCalories() === $elf2->getCalories()) {
+        return 0;
+    }
+
+    return ($elf1->getCalories() > $elf2->getCalories()) ? -1 : 1;
 });
 
-print("Most calories carrying by elf is: " . $elf->getCalories() . "\n");
+$first3CaloriesSum = 0;
+foreach (array_slice($elves, 0, 3) as $elf) {
+    $first3CaloriesSum += $elf->getCalories();
+}
+
+print("Calories carrying by 3 top elves is: " . $first3CaloriesSum . "\n");
