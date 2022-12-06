@@ -3,6 +3,8 @@
 namespace App\Day02\Command;
 
 use App\Common\Command\CommonDayCommand;
+use App\Day02\Game;
+use App\Day02\Game2;
 use SplFileObject;
 use Symfony\Component\Console\Attribute\AsCommand;
 
@@ -14,8 +16,7 @@ class Day02Command extends CommonDayCommand
 {
     protected const DAY = "02";
 
-    protected int $elfScore = 0;
-    protected int $yourScore = 0;
+    private array $data = [];
 
     protected function common(): void
     {
@@ -24,6 +25,11 @@ class Day02Command extends CommonDayCommand
             $line = $file->current();
             preg_match("/(?<elf>\w) (?<you>\w)/", $line, $matches);
 
+            $this->data[] = [
+                'elf' => $matches['elf'],
+                'you' => $matches['you'],
+            ];
+
             $file->next();
         }
 
@@ -31,9 +37,25 @@ class Day02Command extends CommonDayCommand
 
     protected function part1(): void
     {
+        $yourScore = 0;
+
+        foreach ($this->data as $value) {
+            $game = new Game($value['elf'], $value['you']);
+            $yourScore += $game->getYourScore();
+        }
+
+        $this->io->success($yourScore);
     }
 
     protected function part2(): void
     {
+        $yourScore = 0;
+
+        foreach ($this->data as $value) {
+            $game = new Game2($value['elf'], $value['you']);
+            $yourScore += $game->getYourScore();
+        }
+
+        $this->io->success($yourScore);
     }
 }
