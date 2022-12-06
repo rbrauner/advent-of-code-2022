@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Command;
+namespace App\Day02\Command;
 
+use App\Common\Command\CommonDayCommand;
 use SplFileObject;
 use Symfony\Component\Console\Attribute\AsCommand;
 
@@ -22,6 +23,8 @@ class Day02Command extends CommonDayCommand
         while (!$file->eof()) {
             $line = $file->current();
             preg_match("/(?<elf>\w) (?<you>\w)/", $line, $matches);
+
+            $file->next();
         }
 
     }

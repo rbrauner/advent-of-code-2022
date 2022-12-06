@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entity\Day02;
+namespace App\Day02;
 
 class Game
 {

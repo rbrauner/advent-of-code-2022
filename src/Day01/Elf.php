@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Entity\Day01;
+namespace App\Day01;
 
 class Elf
 {

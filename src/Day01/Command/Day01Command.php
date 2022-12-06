@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Command;
+namespace App\Day01\Command;
 
-use App\Entity\Day01\Elf;
+use App\Common\Command\CommonDayCommand;
+use App\Day01\Elf;
 use SplFileObject;
 use Symfony\Component\Console\Attribute\AsCommand;
 
