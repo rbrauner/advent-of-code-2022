@@ -1,3 +1,13 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,git,macos,phpstorm,phpstorm+all,phpstorm+iml,vim,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,git,macos,phpstorm,phpstorm+all,phpstorm+iml,vim,windows
